@@ -1,0 +1,28 @@
+:root {
+  --sidenav-width: 265px;
+  --topnavbar-height: 57.89px;
+}
+
+/* SIDE NAV (OFFCANVAS ON MOBILE) */
+.in2u-sidenav {
+  width: var(--sidenav-width);
+}
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  .offcanvas-backdrop,
+  .offcanvas-header {
+    display: none;
+  }
+  .in2u-sidenav {
+    transform: none;
+    visibility: visible !important;
+    top: var(--topnavbar-height);
+    height: calc(100% - var(--topnavbar-height));
+  }
+  main {
+    margin-left: var(--sidenav-width);
+  }
+}
+/* END OF SIDE NAV */

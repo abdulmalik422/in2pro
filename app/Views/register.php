@@ -1,45 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <title>Register</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>In2u HR Referral Program | Sign up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-in2u.min.css'); ?>" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/in2u-style.css'); ?>" />
 </head>
-<body>
+<body class="bg-primary bg-opacity-10">
+<!-- HEADER -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid bg-light">
+        <a class="navbar-brand text-primary ps-2" href="/welcome.html">
+            <img style="max-width: 50px" src="<?php echo base_url('assets/img/in2uhr-logo.png'); ?>" />
+            <span class="ps-1 align-middle">Referral Program</span>
+        </a>
+        <p class="h5 flex-grow-1 text-end my-0 px-2">Sign Up</p>
+    </div>
+</nav>
+<!-- END OF HEADER -->
+
+<!-- CONTENTS -->
+<!-- hero image -->
+<div
+        class="container-fluid position-relative px-0 mb-4"
+        style="
+        background-image: url(./img/istockphoto-1201798744-2048x2048-login-2.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 40vh;
+      "
+>
+    <div
+            class="
+          w-100
+          position-absolute
+          bottom-0
+          d-flex
+          justify-content-center
+          align-items-center
+          bg-light bg-opacity-75
+          border-top border-bottom border-primary border-2
+        "
+            style="min-height: 17%"
+    >
+        <h1 class="h3 text-primary text-center text-uppercase px-3 py-1 mb-0">
+            Sign Up
+        </h1>
+    </div>
+</div>
+<!-- end of hero image -->
 <div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col-6">
-            <h1>Sign Up</h1>
-            <?php if(isset($validation)):?>
-                <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
-            <?php endif;?>
-            <form action="/register/save" method="post">
-                <div class="mb-3">
-                    <label for="InputForName" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="InputForName" value="<?= set_value('name') ?>">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 p-3 text-md-center">
+            <p class="lead">
+                Create your account and start inviting your friends.
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <form
+                    action=""
+                    method="post"
+                    oninput='pw2.setCustomValidity(pw2.value != pw1.value ? "Passwords do not match." : "")'
+            >
+                <div class="form-floating mb-3">
+                    <input
+                            type="tel"
+                            class="form-control"
+                            id="floatingPhone"
+                            placeholder="1234567890"
+                            required
+                    />
+                    <label for="floatingPhone">ID (Mobile Phone Number)</label>
                 </div>
-                <div class="mb-3">
-                    <label for="InputForEmail" class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email') ?>">
+                <div class="form-floating mb-3">
+                    <input
+                            type="password"
+                            class="form-control"
+                            id="floatingPassword"
+                            placeholder="Password"
+                            name="pw1"
+                            required
+                    />
+                    <label for="floatingPassword">Password</label>
                 </div>
-                <div class="mb-3">
-                    <label for="InputForPassword" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="InputForPassword">
+                <div class="form-floating mb-3">
+                    <input
+                            type="password"
+                            class="form-control"
+                            id="floatingPasswordConfirm"
+                            placeholder="Password Confirmation"
+                            name="pw2"
+                            required
+                    />
+                    <label for="floatingPasswordConfirm">Password Confirmation</label>
                 </div>
-                <div class="mb-3">
-                    <label for="InputForConfPassword" class="form-label">Confirm Password</label>
-                    <input type="password" name="confpassword" class="form-control" id="InputForConfPassword">
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="form-floating">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floatingFirstName"
+                                    placeholder="First Name"
+                                    required
+                            />
+                            <label for="floatingFirstName">First Name</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floatingLastName"
+                                    placeholder="Last Name"
+                                    required
+                            />
+                            <label for="floatingLastName">Last Name</label>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+
+                <div class="form-floating mb-5">
+                    <input
+                            type="email"
+                            class="form-control"
+                            id="floatingEmail"
+                            placeholder="name@example.com"
+                    />
+                    <label for="floatingPassword">Email (Optional)</label>
+                </div>
+                <div class="row px-2 mb-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Sign Up
+                    </button>
+                    <!-- When Success: Goes to the Sign Up Verification Page -->
+                </div>
+
+                <p class="text-center text-danger mb-5">
+                    <small>Mobile Phone Number is already in use.</small>
+                </p>
             </form>
         </div>
     </div>
 </div>
-<!-- Popper.js first, then Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+<!-- END OF CONTENTS -->
+
+<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 </html>
