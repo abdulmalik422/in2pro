@@ -77,3 +77,17 @@ defined('EXIT_USER_INPUT')     || define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+$baseURL = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+$baseURL .= "://".$_SERVER['HTTP_HOST'];
+$baseURL .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+
+//define('ADMIN_ASSETS',$baseURL.'assets/admin/');
+define('ASSETS_URL',$baseURL.'assets/');
+//define('ADMIN_URL',$baseURL.'manage/');
+
+define('SITE_TITLE' , 'In2u HR Referral Program');
+
+define('BASE_URL' , $baseURL);
+define('INCLUDE_URL' , $baseURL.'includes/');
+
